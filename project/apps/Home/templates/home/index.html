@@ -1,0 +1,62 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block BASE_CONTENIDO %}
+
+    <div class="row align-items-center my-5">
+        <h1 class="pb-lg-3 text-bg-light">
+            {% block INDEX_TITULO %}
+                Mi Presentacion
+            {% endblock INDEX_TITULO %}
+        </h1>
+    </div>
+
+    {% block INDEX_CONTENIDO %}
+
+    
+        {% if user.is_authenticated %}
+            {{ mensaje }}
+            <h3> Bienvenido {{ user.username }} mi Buen Cliente😁!!</h3>
+        {% endif %}
+
+        {% if user.is_staff %}
+            <div class="row">
+                <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Panel de Administración</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'Home:register' %}" class="btn btn-outline-dark">Registrar nuevo vendedor</a>
+            </div>
+        {% endif %}
+
+
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/desarrollador.webp' %}" alt="..." /></div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light text-center ">Hola, Soy Tu Desarrollador web</h1>
+                <p class="mb-7 ">Bienvenido a mi Portafolio Profesional, tu socio confiable en el mundo digital.
+
+                    Somos un equipo apasionado de profesionales del desarrollo web, comprometidos en crear soluciones digitales únicas y efectivas que impulsen tu presencia en línea al siguiente nivel.
+                    
+                    ¿Necesitas una página web moderna y atractiva para tu negocio? ¿Quieres una tienda en línea que cautive a tus clientes y aumente tus ventas? ¿O tal vez tienes una idea innovadora que quieres convertir en una aplicación web funcional y poderosa? Estamos aquí para ayudarte a hacerlo realidad.
+                </p>
+                    <div class="d-flex justify-content-center">
+                     <a class="btn btn-primary" href="https://w.app/GTU8fb" target="_blank">WhatsApp</a>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+
+            {% include 'Home/card.html' with card="Crea mi pagina Estatica" texto="Transforma tu visión en realidad con una página web única y atractiva. Captura la atención de tus clientes desde el primer clic y presenta tu negocio de manera impactante."%}
+            {% include 'Home/card.html' with card="Asesoria BackEnd" texto="Maximiza el rendimiento de tu sitio web con nuestra experiencia en desarrollo BackEnd. Optimizamos tu plataforma para un funcionamiento eficiente y una experiencia de usuario excepcional." %}
+            {% include 'Home/card.html' with card="Asesoria Personalizada" texto="Tu éxito es nuestro enfoque. Obtén orientación personalizada en cada etapa de tu proyecto digital. Desde la planificación hasta la implementación, estamos aquí para brindarte soluciones adaptadas a tus necesidades únicas." %}
+            
+
+        </div>
+    {% endblock INDEX_CONTENIDO %}
+
+{% endblock BASE_CONTENIDO %}
+{% block BASE_FOOTER %}
+{% endblock BASE_FOOTER %}

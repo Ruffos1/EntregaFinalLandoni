@@ -1,0 +1,40 @@
+{% extends 'home/index.html' %}
+{% load static %}
+
+{% block INDEX_TITULO %}
+Acerca de mis Servicios
+{% endblock %}
+
+{% block INDEX_CONTENIDO %}
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row row-cols-auto justify-content-center align-items-center">
+          <div class="col-md-12 d-flex justify-content-center">
+            <img src="{% static 'Home/img/programador.jpg' %}" class="img-fluid mb-3" alt="Imagen 1">
+          </div>
+          <div class="col-md-12">
+            <h2 class="text-center">Mi Historia</h2>
+            <p>Mi nombre es Matias Landoni, tengo 16 años, y soy desarrollador web (Espero que desarrollador python tambien 😉). Si te preguntas porque empecé con esto, realmente no te podré contestar con una razón concreta, tal vez el hecho de pasar horas en mi computadora y querer que este tiempo no sea desperdiciado fue el causante. Pero realmente, creo que mi afán en poder vivir la vida que quiero fue el motor de mi comienzo en la programación, quiero decir, que creo que la programación es un servicio de alta importancia, y en crecimiento constante. En conclusión, esto podría ayudar a potenciar mi carrera profesional en un futuro. ¿Y quién sabe?; A lo mejor podría vivir de esto.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row row-cols-auto justify-content-center align-items-center">
+          <div class="col-md-12 d-flex justify-content-center">
+            <img src="{% static 'Home/img/diseño.png' %}" class="img-fluid mb-3" alt="Imagen 2">
+          </div>
+          <div class="col-md-12">
+            <h2 class="text-center">Mi Trabajo</h2>
+            <p>Podría brindar mis servicios en Desarrollo web y Python, creando desde una página estática o Landing Pages, totalmente responsive y aplicando conceptos valiosísimos de Diseño Web y UX/UI. Este es un ejemplo de mi entrega final, en el curso de coder</p>
+
+            <div class="d-flex justify-content-center">
+              <a href="https://github.com/Ruffos1/PreEntrega2Landoni.git" class="btn btn-primary mt-3">Trabajo de GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock INDEX_CONTENIDO %}
