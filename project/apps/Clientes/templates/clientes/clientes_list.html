@@ -1,0 +1,16 @@
+{% extends "home/index.html" %}
+{% block INDEX_TITULO %}
+  Listado De Clientes
+{% endblock INDEX_TITULO %}
+{% block INDEX_CONTENIDO %}
+{% for cliente in object_list %}
+<ul>
+    <li>{{ cliente.nombre }} {{ cliente.apellido }}
+        <a href="{% url 'Clientes:clientes_detail' object.id %}">Ver detalle</a>
+        <a href="#!">Eliminar</a>
+    </li>
+</ul>
+  <h2></h2>
+  <p></p>
+{% endfor %}
+{% endblock INDEX_CONTENIDO %}

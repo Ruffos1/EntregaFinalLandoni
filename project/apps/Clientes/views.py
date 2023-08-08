@@ -6,6 +6,13 @@ from django.urls import is_valid_path
 
 from .forms import ClienteForm
 
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
+)
 # Create your views here.
 from .models import Cliente, Pais
 # Create your views here.
@@ -42,3 +49,10 @@ def busqueda(request: HttpRequest) -> HttpResponse:
         "clientes_pais": cliente_pais
     }
     return render(request, "cliente/search.html", contexto)
+
+from . import models
+class ClienteList(ListView):
+    model = models.Cliente
+
+class ClienteDetail(DetailView):
+    model = models.Cliente

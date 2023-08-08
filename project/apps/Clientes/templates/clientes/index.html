@@ -4,18 +4,12 @@
   Bienvenido a Mis Clientes
 {% endblock INDEX_TITULO %}
 {% block INDEX_CONTENIDO %}
-{% for cliente in clientes %}
-<h2>{{ cliente.nombre }}</h2>
-<p>{{ cliente.apellido }}</p>
-<p>{{ cliente.nacimiento }}</p>
-<p>{{ cliente.pais_origen_id }}</p>
-{% endfor %}
 {% if user.is_authenticated %} 
   <div>
     <button>Crear Nuevo Cliente</button>
   </div>
   <div>
-    <button>Ver Listado de Clientes</button>
+    <a href="{% url "Clientes:clientes_list" %}">Ver Listado de Clientes</a>
   </div>
 {% else %}
   <div>
