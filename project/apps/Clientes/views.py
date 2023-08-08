@@ -2,7 +2,7 @@ from datetime import date
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
-from django.urls import is_valid_path
+from django.urls import is_valid_path, reverse_lazy
 
 from .forms import ClienteForm
 
@@ -26,10 +26,10 @@ def crear_cliente(request: HttpRequest) -> HttpResponse:
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("cliente:home")
+            return redirect("Clientes:home")
     else:  # request.method == "GET"
         form = ClienteForm()
-    return render(request, "cliente/crear.html", {"form": form})
+    return render(request, "clientes/crear.html", {"form": form})
 
 
 def busqueda(request: HttpRequest) -> HttpResponse:
@@ -48,7 +48,7 @@ def busqueda(request: HttpRequest) -> HttpResponse:
         "clientes_nacimiento": cliente_nacimiento,
         "clientes_pais": cliente_pais
     }
-    return render(request, "cliente/search.html", contexto)
+    return render(request, "clientes/search.html", contexto)
 
 from . import models
 class ClienteList(ListView):
@@ -56,3 +56,13 @@ class ClienteList(ListView):
 
 class ClienteDetail(DetailView):
     model = models.Cliente
+
+class ClienteDelete(DeleteView):
+    model = models.Cliente
+    success_url = reverse_lazy("Home:home")
+
+from . import forms
+class ClienteCreate(CreateView):
+    model = models.Cliente
+    form_class = forms.ClienteForm
+    success_url = reverse_lazy("Home:home")

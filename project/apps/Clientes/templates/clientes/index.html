@@ -6,7 +6,7 @@
 {% block INDEX_CONTENIDO %}
 {% if user.is_authenticated %} 
   <div>
-    <button>Crear Nuevo Cliente</button>
+    <a href="{% url "Clientes:clientes_create" %}">Crear Nuevo Cliente</a>
   </div>
   <div>
     <a href="{% url "Clientes:clientes_list" %}">Ver Listado de Clientes</a>

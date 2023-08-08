@@ -6,8 +6,8 @@
 {% for cliente in object_list %}
 <ul>
     <li>{{ cliente.nombre }} {{ cliente.apellido }}
-        <a href="{% url 'Clientes:clientes_detail' object.id %}">Ver detalle</a>
-        <a href="#!">Eliminar</a>
+        <a href="{% url 'Clientes:clientes_detail' cliente.id %}">Ver detalle</a>
+        <a href="{% url 'Clientes:clientes_delete' cliente.id %}">Eliminar</a>
     </li>
 </ul>
   <h2></h2>
