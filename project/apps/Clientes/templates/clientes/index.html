@@ -1,0 +1,17 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block INDEX_TITULO %}
+  Bienvenido a Mis Clientes
+{% endblock INDEX_TITULO %}
+{% block INDEX_CONTENIDO %}
+{% if user.is_authenticated %} 
+  <div>
+    <button>Crear Nuevo Cliente</button>
+  </div>
+{% else %}
+  <div>
+    <button>Ver Listado de Clientes</button>
+  </div>
+{% endif %}
+ 
+{% endblock INDEX_CONTENIDO %}

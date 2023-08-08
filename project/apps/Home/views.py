@@ -31,10 +31,10 @@ def login_request(request: HttpRequest) -> HttpResponse:
             user = authenticate(username=usuario, password=contraseña)
             if user is not None:
                 login(request, user)
-                return render(request, "Home/index.html", {"mensaje": "Inició sesión correctamente"})
+                return render(request, "home/index.html", {"mensaje": "Inició sesión correctamente"})
     else:
         form = forms.CustomAuthenticationForm()
-    return render(request, "Home/login.html", {"form": form})
+    return render(request, "home/login.html", {"form": form})
 
 #! REGISTRO
 
@@ -49,4 +49,4 @@ def register(request: HttpRequest) -> HttpResponse:
             return render(request, "Home/index.html", {"mensaje": "Vendedor creado 😊"})
     else:
         form = forms.CustomUserCreationForm()
-    return render(request, "Home/register.html", {"form": form})
+    return render(request, "home/register.html", {"form": form})
