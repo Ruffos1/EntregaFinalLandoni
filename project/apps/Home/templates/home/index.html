@@ -14,12 +14,9 @@
     {% block INDEX_CONTENIDO %}
 
     
-        {% if user.is_staff %}
+        {% if user.is_authenticated %}
             {{ mensaje }}
-            <h3> Bienvenido {{ user.username }} mi Buen Jefe😁!!</h3>
-            {% else %}
-            {{ mensaje }}
-            <h3> Bienvenido {{ user.username }} mi Buen Vendedor😁!!</h3>
+            <h3> Bienvenido {{ user.username }} 😁!!</h3>
         {% endif %}
         
 
