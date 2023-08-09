@@ -38,7 +38,7 @@ Framework Web: Flask (Python)
 Base de Datos: SQLite (para desarrollo)
 
 # Instalación y Ejecución
-Clona el repositorio desde GitHub: git clone https://github.com/tu-usuario/nombre-del-repo.git
+Clona el repositorio desde GitHub: git clone (https://github.com/Ruffos1/EntregaFinalLandoni.git)
 Navega al directorio del proyecto: cd nombre-del-repo
 Crea y activa un entorno virtual: python -m venv venv y source venv/bin/activate (Linux/macOS) o venv\Scripts\activate (Windows)
 Instala las dependencias: pip install -r requirements.txt
