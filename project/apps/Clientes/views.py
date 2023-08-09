@@ -32,23 +32,7 @@ def crear_cliente(request: HttpRequest) -> HttpResponse:
     return render(request, "clientes/crear.html", {"form": form})
 
 
-def busqueda(request: HttpRequest) -> HttpResponse:
-    # Búsqueda por nombre que contenga "dana"
-    cliente_nombre = Cliente.objects.filter(nombre__contains="dana")
 
-    # Nacimientos  mayores a 2000
-    cliente_nacimiento = Cliente.objects.filter(
-        nacimiento__gt=date(2000, 1, 1))
-
-    # País de origen vacío
-    cliente_pais = Cliente.objects.filter(pais_origen_id=None)
-
-    contexto = {
-        "clientes_nombre": cliente_nombre,
-        "clientes_nacimiento": cliente_nacimiento,
-        "clientes_pais": cliente_pais
-    }
-    return render(request, "clientes/search.html", contexto)
 
 from . import models
 class ClienteList(ListView):
